@@ -2,16 +2,25 @@
 %html
   %head
     %title Children Supervisor
-    %meta{:charset => "utf-8"}
-    %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge"}
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
+    %nav.navbar.navbar-default
+      .container
+        .navbar-brand= link_to "Children Supervisor", root_path
+
+        - if parent_signed_in?
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Sign Out", destroy_parent_session_path, method: :delete
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Sign Up", new_parent_registration_path
+            %li= link_to "Log In", new_parent_session_path
+
     .container
-      .text-center
-        - flash.each do |name, msg|
-          = content_tag :div, msg, class: "alert"
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert"
+
       = yield
