@@ -16,3 +16,24 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ html {
+     height: 100%;
+ }
+
+ body {
+  height: 100%;
+  background-color: #fafafa;
+  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+ .main-page-bg {
+   padding-top: 4em;
+   height: 100%;
+   color: #8c8c8c;
+   -moz-background-size: cover;
+   -webkit-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+   background-image: image-url('family-bg.jpg');
+ }

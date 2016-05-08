@@ -11,7 +11,7 @@
       .container
         .navbar-brand
           - if parent_signed_in?
-            = link_to "Children Supervisor", parents_path
+            = link_to "Children Supervisor", current_parent
           - else
             = link_to "Children Supervisor", root_path
 
@@ -23,8 +23,16 @@
             %li= link_to "Sign Up", new_parent_registration_path
             %li= link_to "Log In", new_parent_session_path
 
-    .container
-      - flash.each do |name, msg|
-        = content_tag :div, msg, class: "alert"
-
-      = yield
+    - if parent_signed_in?
+      .container
+        .text-center
+          - flash.each do |name, msg|
+            = content_tag :div, msg, class: "alert"
+        = yield
+    - else
+      .main-page-bg
+        .container
+          .text-center
+            - flash.each do |name, msg|
+              = content_tag :div, msg, class: "alert"
+          = yield
