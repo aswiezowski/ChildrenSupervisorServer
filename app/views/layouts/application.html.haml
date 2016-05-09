@@ -10,10 +10,7 @@
     %nav.navbar.navbar-default
       .container
         .navbar-brand
-          - if parent_signed_in?
-            = link_to "Children Supervisor", current_parent
-          - else
-            = link_to "Children Supervisor", root_path
+          = link_to "Children Supervisor", root_path
 
         - if parent_signed_in?
           %ul.nav.navbar-nav.navbar-right
