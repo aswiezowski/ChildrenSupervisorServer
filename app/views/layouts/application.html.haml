@@ -7,18 +7,7 @@
     = csrf_meta_tags
 
   %body
-    %nav.navbar.navbar-default
-      .container
-        .navbar-brand
-          = link_to "Children Supervisor", root_path
-
-        - if parent_signed_in?
-          %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Sign Out", destroy_parent_session_path, method: :delete
-        - else
-          %ul.nav.navbar-nav.navbar-right
-            %li= link_to "Sign Up", new_parent_registration_path
-            %li= link_to "Log In", new_parent_session_path
+    = render 'layouts/navbar'
 
     - if parent_signed_in?
       .container

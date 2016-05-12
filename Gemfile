@@ -17,6 +17,7 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'devise'
 gem 'html2haml', '~> 2.0'
 gem 'rb-readline', '~> 0.5.3'
+gem 'rails-erd'
 
 group :development, :test do
   gem 'byebug'
