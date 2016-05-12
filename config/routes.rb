@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#main'
   devise_for :parents
-  get 'parents/:id', to: 'parents#show', as: 'parent'
+  resources :parents, only: :show do
+    resources :children
+  end
 end

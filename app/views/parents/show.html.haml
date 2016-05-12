@@ -1,12 +1,14 @@
 .text-center
   %h1 Your children:
 
-<b>Name</b>
-.pull-right
-  <b>Age</b>
--@children.each do |child|
-  .list-group
-    .list-group-item
-      = child.name
-      .pull-right
-        = child.age
+.children-wrapper
+  <strong>Name</strong>
+  .pull-right
+    <strong>Age</strong>
+  -@children.each do |child|
+    .list-group
+      .list-group-item
+        = child.name
+        .pull-right
+          = child.age
+  = link_to "Add child", new_parent_child_path(@parent.id), class: "btn btn-success btn-block"

@@ -1,0 +1,12 @@
+.children-wrapper
+  = simple_form_for @child, url: parent_children_path, html: { multipart: true } do |f|
+    .row
+      .col-md-12.text-center
+        = f.error_notification
+    .container-fluid
+      .form-group.text-center
+        = f.input :name, label: false, placeholder: 'Add child name'
+      .form-group.text-center
+        = f.input :age, label: false, placeholder: 'Input child age'
+      .form-group.text-center
+        = f.button :submit, class: 'btn-success btn-block'
