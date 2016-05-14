@@ -2,13 +2,12 @@
   %h1 Your children:
 
 .children-wrapper
-  <strong>Name</strong>
-  .pull-right
-    <strong>Age</strong>
   -@children.each do |child|
     .list-group
       .list-group-item
+        <strong>Name: </strong>
         = child.name
         .pull-right
+          <strong>Age: </strong>
           = child.age
   = link_to "Add child", new_parent_child_path(@parent.id), class: "btn btn-success btn-block"
