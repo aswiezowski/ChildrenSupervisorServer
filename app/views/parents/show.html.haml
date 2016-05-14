@@ -5,7 +5,8 @@
   -@children.each do |child|
     .list-group
       .list-group-item
-        <strong>Name: </strong>
+        .children-image
+          = profile_avatar_select(child)
         = link_to child.name, parent_child_path(@parent.id, child.id)
         .pull-right
           <strong>Age: </strong>

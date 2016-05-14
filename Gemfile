@@ -18,6 +18,7 @@ gem 'devise'
 gem 'html2haml', '~> 2.0'
 gem 'rb-readline', '~> 0.5.3'
 gem 'rails-erd'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
 group :development, :test do
   gem 'byebug'

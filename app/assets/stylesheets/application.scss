@@ -74,6 +74,27 @@
   width: 100%;
 }
 
+.children-image {
+  img {
+    float: left;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+.child {
+  background-color: #fff;
+  border-color: #edeeee;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  margin-bottom: 60px;
+  padding: 10px 20px 10px 20px;
+}
+
 .number-circle {
     border-radius: 50%;
     width: 50px;
@@ -93,4 +114,14 @@
 
 .red {
   color: #e51414;
+}
+
+#image-preview {
+  margin: 0px auto;
+}
+
+.profile-image {
+  margin: 20px auto;
+  height: 152px;
+  width: 152px;
 }
