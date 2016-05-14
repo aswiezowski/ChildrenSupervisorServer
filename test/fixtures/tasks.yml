@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  child_id: 
+  summary: MyString
+  description: MyText
+  status: false
+  mark: 1
+
+two:
+  child_id: 
+  summary: MyString
+  description: MyText
+  status: false
+  mark: 1

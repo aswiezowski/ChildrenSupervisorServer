@@ -1,0 +1,18 @@
+= render 'layouts/return'
+
+%h1
+  = @child.name
+  .number-circle
+    = @child.age
+
+.children-wrapper
+  -@tasks.each do |task|
+    .list-group
+      .list-group-item
+        = task.summary
+        .pull-right
+          -if task.status
+            %span(class="glyphicon glyphicon-ok-circle green")
+          -else
+            %span(class="glyphicon glyphicon-remove-circle red")
+  = link_to "Add task", new_parent_child_task_path(@child.parent.id, @child.id), class: "btn btn-primary btn-block"

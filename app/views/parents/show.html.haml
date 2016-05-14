@@ -6,7 +6,7 @@
     .list-group
       .list-group-item
         <strong>Name: </strong>
-        = child.name
+        = link_to child.name, parent_child_path(@parent.id, child.id)
         .pull-right
           <strong>Age: </strong>
           = child.age

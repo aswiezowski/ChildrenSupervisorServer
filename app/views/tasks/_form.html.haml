@@ -1,0 +1,14 @@
+= render 'layouts/return'
+
+.children-wrapper
+  = simple_form_for @task, url: parent_child_tasks_path, html: { multipart: true } do |f|
+    .row
+      .col-md-12.text-center
+        = f.error_notification
+    .container-fluid
+      .form-group.text-center
+        = f.input :summary, placeholder: 'Input taks summary...'
+      .form-group.text-center
+        = f.input :description, as: :text, placeholder: 'Input task decription...'
+      .form-group.text-center
+        = f.button :submit, class: 'btn-primary btn-block'

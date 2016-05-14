@@ -1,4 +1,9 @@
 class ChildrenController < ApplicationController
+  before_action :find_child, only: :show
+
+  def show
+    @tasks = @child.tasks
+  end
 
   def new
     @child = current_parent.children.build
@@ -17,6 +22,10 @@ class ChildrenController < ApplicationController
   end
 
   private
+
+  def find_child
+    @child = Child.find(params[:id])
+  end
 
   def child_params
     params.require(:child).permit(:name, :age)

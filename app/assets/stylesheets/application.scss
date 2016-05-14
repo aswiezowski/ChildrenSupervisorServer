@@ -52,7 +52,7 @@
 }
 
 .navbar-container {
-  width: 70%;
+  width: 73%;
   margin: 0 auto;
 }
 
@@ -70,6 +70,27 @@
  .children-wrapper {
   padding-top: 40px;
   margin: 0 auto;
-  max-width: 642px;
+  max-width: 542px;
   width: 100%;
+}
+
+.number-circle {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 6px;
+    background: #fff;
+    border: 2px solid black;
+    color: black;
+    text-align: center;
+    font: 32px Arial, sans-serif;
+    display: inline-block;
+}
+
+.green {
+  color: #4c9408;
+}
+
+.red {
+  color: #e51414;
 }
