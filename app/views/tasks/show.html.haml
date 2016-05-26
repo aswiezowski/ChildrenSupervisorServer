@@ -6,7 +6,7 @@
   -else
     %span(class="glyphicon glyphicon-remove-circle red")
   = @task.summary
-  %input(class="rating")
+  = render 'rate'
 
 .children-wrapper
   .child

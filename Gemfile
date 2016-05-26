@@ -20,6 +20,7 @@ gem 'rb-readline', '~> 0.5.3'
 gem 'rails-erd'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'aws-sdk', '< 2.0'
+gem 'ratyrate'
 
 group :development, :test do
   gem 'byebug'

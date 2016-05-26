@@ -4,4 +4,8 @@ module ApplicationHelper
     return image_tag child.avatar.url(:medium), id: 'image-preview', class: 'img-responsive img-circle profile-image' if child.avatar.exists?
     image_tag 'default-avatar.jpg', id: 'image-preview', class: 'img-responsive img-circle profile-image'
   end
+
+  def current_user
+    current_parent
+  end
 end
