@@ -1,6 +1,10 @@
 class TasksController < ApplicationController
   before_action :find_child
 
+  def show
+    @task = Task.find(params[:id])
+  end
+
   def new
     @task = @child.tasks.build
   end

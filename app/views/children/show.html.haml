@@ -9,7 +9,7 @@
   -@tasks.each do |task|
     .list-group
       .list-group-item
-        = task.summary
+        = link_to task.summary, parent_child_task_path(@child.parent.id, @child.id, task.id)
         .pull-right
           -if task.status
             %span(class="glyphicon glyphicon-ok-circle green")
