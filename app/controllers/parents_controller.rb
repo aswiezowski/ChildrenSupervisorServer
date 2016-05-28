@@ -5,6 +5,11 @@ class ParentsController < ApplicationController
 
   def show
     @children = @parent.children
+
+    respond_to do |format|
+      format.json { render json: @parent }
+      format.html # show.html.erb
+    end
   end
 
   private

@@ -1,8 +1,19 @@
 class TasksController < ApplicationController
-  before_action :find_child, only: [:new, :create]
+  before_action :find_child, only: [:index, :new, :create]
   before_action :find_task, only: [:show, :edit, :update]
 
+  def index
+    @tasks = @child.tasks
+    respond_to do |format|
+      format.json { render json: @tasks }
+    end
+  end
+
   def show
+    respond_to do |format|
+      format.json { render json: @task }
+      format.html # show.html.erb
+    end
   end
 
   def new

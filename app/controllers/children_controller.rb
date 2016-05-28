@@ -4,6 +4,11 @@ class ChildrenController < ApplicationController
   def show
     @uncompleted_tasks = @child.tasks.where(status: false)
     @completed_tasks = @child.tasks.where(status: true)
+
+    respond_to do |format|
+      format.json { render json: @child }
+      format.html # show.html.erb
+    end
   end
 
   def new
