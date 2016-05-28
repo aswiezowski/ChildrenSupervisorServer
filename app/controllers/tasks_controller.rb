@@ -15,7 +15,7 @@ class TasksController < ApplicationController
 
     if @task.save
       flash[:success] = "Your task has been added!"
-      redirect_to parent_child_path(@child.parent.id, @child.id)
+      redirect_to parent_child_path(@child.parent, @child)
     else
       flash.now[:alert] = "Your task couldn't be added! Please check the form"
       render :new

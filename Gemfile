@@ -22,6 +22,7 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'aws-sdk', '< 2.0'
 gem 'ratyrate'
 gem 'rails_12factor', group: :production
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'byebug'

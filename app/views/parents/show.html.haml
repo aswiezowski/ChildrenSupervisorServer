@@ -7,8 +7,8 @@
       .list-group-item
         .children-image
           = profile_avatar_select(child)
-        = link_to child.name + " - " + child.age.to_s, parent_child_path(@parent.id, child.id)
+        = link_to child.name + " - " + child.age.to_s, parent_child_path(@parent, child)
         .pull-right
           <strong>Tasks number: </strong>
           = child.tasks.count
-  = link_to "Add child", new_parent_child_path(@parent.id), class: "btn btn-success btn-block"
+  = link_to "Add child", new_parent_child_path(@parent), class: "btn btn-success btn-block"
