@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
-  before_action :find_child
+  before_action :find_child, only: [:new, :create]
+  before_action :find_task, only: [:show, :edit, :update]
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def new
@@ -22,9 +22,23 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @task.update(task_params)
+      redirect_to @task
+    end
+  end
+
   private
+
   def find_child
     @child = Child.find(params[:child_id])
+  end
+
+  def find_task
+    @task = Task.find(params[:id])
   end
 
   def task_params

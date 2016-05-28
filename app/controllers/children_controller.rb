@@ -2,7 +2,8 @@ class ChildrenController < ApplicationController
   before_action :find_child, only: :show
 
   def show
-    @tasks = @child.tasks
+    @uncompleted_tasks = @child.tasks.where(status: false)
+    @completed_tasks = @child.tasks.where(status: true)
   end
 
   def new

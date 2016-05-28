@@ -4,15 +4,32 @@
   = @child.name
   .number-circle
     = @child.age
+  .text-center
+    = profile_avatar_select(@child)
 
 .children-wrapper
-  -@tasks.each do |task|
-    .list-group
-      .list-group-item
-        = link_to task.summary, parent_child_task_path(@child.parent.id, @child.id, task.id)
-        .pull-right
-          -if task.status
-            %span(class="glyphicon glyphicon-ok-circle green")
-          -else
-            %span(class="glyphicon glyphicon-remove-circle red")
+  - if @uncompleted_tasks.size > 0
+    %h3
+      = "Uncompleted tasks:"
+    -@uncompleted_tasks.each do |task|
+      .list-group
+        .list-group-item
+          = link_to task.summary, parent_child_task_path(@child.parent.id, @child.id, task.id)
+          .pull-right
+            -if task.status
+              %span(class="glyphicon glyphicon-ok-circle green")
+            -else
+              %span(class="glyphicon glyphicon-remove-circle red")
+  - if @completed_tasks.size > 0
+    %h3
+      = "Completed tasks:"
+    -@completed_tasks.each do |task|
+      .list-group
+        .list-group-item
+          = link_to task.summary, parent_child_task_path(@child.parent.id, @child.id, task.id)
+          .pull-right
+            -if task.status
+              %span(class="glyphicon glyphicon-ok-circle green")
+            -else
+              %span(class="glyphicon glyphicon-remove-circle red")
   = link_to "Add task", new_parent_child_task_path(@child.parent.id, @child.id), class: "btn btn-primary btn-block"
