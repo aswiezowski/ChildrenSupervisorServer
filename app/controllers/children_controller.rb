@@ -2,8 +2,9 @@ class ChildrenController < ApplicationController
   before_action :find_child, only: :show
 
   def show
-    @uncompleted_tasks = @child.tasks.where(status: false)
-    @completed_tasks = @child.tasks.where(status: true)
+    @tasks = @child.tasks.order(:status)
+    @uncompleted_tasks = @tasks.select { |task| task.status == false }
+    @completed_tasks = @tasks.select { |task| task.status == true }
 
     respond_to do |format|
       format.json { render json: @child }

@@ -7,29 +7,24 @@
   .text-center
     = profile_avatar_select(@child)
 
-.children-wrapper
+.col-md-8
+  = month_calendar events: @tasks do |date, tasks|
+    = date
+
+    -tasks.each do |task|
+      .text-center
+        = render 'tasks/status', task: task
+        = task.summary
+
+.col-md-4
   - if @uncompleted_tasks.size > 0
     %h3
       = "Uncompleted tasks:"
     -@uncompleted_tasks.each do |task|
-      .list-group
-        .list-group-item
-          = link_to task.summary, parent_child_task_path(@child.parent, @child, task.id)
-          .pull-right
-            -if task.status
-              %span(class="glyphicon glyphicon-ok-circle green")
-            -else
-              %span(class="glyphicon glyphicon-remove-circle red")
+      = render 'tasks/task', task: task, child: @child
   - if @completed_tasks.size > 0
     %h3
       = "Completed tasks:"
     -@completed_tasks.each do |task|
-      .list-group
-        .list-group-item
-          = link_to task.summary, parent_child_task_path(@child.parent, @child, task.id)
-          .pull-right
-            -if task.status
-              %span(class="glyphicon glyphicon-ok-circle green")
-            -else
-              %span(class="glyphicon glyphicon-remove-circle red")
+      = render 'tasks/task', task: task, child: @child
   = link_to "Add task", new_parent_child_task_path(@child.parent, @child), class: "btn btn-primary btn-block"

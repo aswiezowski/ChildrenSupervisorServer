@@ -1,0 +1,5 @@
+.list-group
+  .list-group-item
+    = link_to task.summary, parent_child_task_path(child.parent, child, task.id)
+    .pull-right
+      = render 'tasks/status', task: task

@@ -23,6 +23,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'ratyrate'
 gem 'rails_12factor', group: :production
 gem 'friendly_id', '~> 5.1.0'
+gem "simple_calendar", "~> 2.0"
 
 group :development, :test do
   gem 'byebug'
