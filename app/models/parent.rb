@@ -3,4 +3,6 @@ class Parent < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :children, dependent: :destroy
   ratyrate_rater
+
+  validates :parent_name, presence: true
 end

@@ -16,8 +16,8 @@
         .row
           .col-md-12
             .form-group.text-center
-              = f.input :name, label: false, placeholder: 'Child name'
+              = f.input :name, label: false, placeholder: 'Child name', required: true
             .form-group.text-center
-              = f.input :age, label: false, placeholder: 'Child age'
+              = f.input :age, label: false, placeholder: 'Child age', required: true
         .form-group.text-center
           = f.button :submit, class: 'btn-success btn-block'

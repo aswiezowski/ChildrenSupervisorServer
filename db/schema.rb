@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526112758) do
+ActiveRecord::Schema.define(version: 20160528131137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160526112758) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "children", ["name"], name: "index_children_on_name", unique: true, using: :btree
   add_index "children", ["parent_id"], name: "index_children_on_parent_id", using: :btree
 
   create_table "overall_averages", force: :cascade do |t|
@@ -60,9 +61,11 @@ ActiveRecord::Schema.define(version: 20160526112758) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "parent_name"
   end
 
   add_index "parents", ["email"], name: "index_parents_on_email", unique: true, using: :btree
+  add_index "parents", ["parent_name"], name: "index_parents_on_parent_name", unique: true, using: :btree
   add_index "parents", ["reset_password_token"], name: "index_parents_on_reset_password_token", unique: true, using: :btree
 
   create_table "rates", force: :cascade do |t|
