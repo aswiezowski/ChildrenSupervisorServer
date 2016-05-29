@@ -7,5 +7,5 @@ Rails.application.routes.draw do
       resources :tasks
     end
   end
-  get '/parents/:parent_id/children/:child_id/tasks/:date/after' => 'tasks#after_date', as: 'parent_child_tasks_date'
+  get '/parents/:parent_id/children/:child_id/tasks_after' => 'tasks#after_date', as: 'parent_child_tasks_date'
 end
