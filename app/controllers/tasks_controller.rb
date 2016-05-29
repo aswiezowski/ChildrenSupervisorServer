@@ -9,6 +9,15 @@ class TasksController < ApplicationController
     end
   end
 
+  def after_date
+    date = Date.parse(params[:date]) if params[:date]
+    date ||= Date.current
+    @tasks = Task.after_date(date)
+    respond_to do |format|
+      format.json { render json: @tasks }
+    end
+  end
+
   def show
     respond_to do |format|
       format.json { render json: @task }
